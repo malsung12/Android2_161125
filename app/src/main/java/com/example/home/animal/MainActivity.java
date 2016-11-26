@@ -8,12 +8,16 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
-    CheckBox checkBox;
+    Switch switch1;
     RadioGroup rg;
-    Button button;
+    RadioButton radioButton, radioButton2, radioButton3;
+    Button button, button2;
     ImageView imageView;
     LinearLayout line;
 
@@ -21,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("애완동물 사진보기");
+        setTitle("안드로이드 사진보기");
 
         initId();
 
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -37,29 +41,50 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.radioButton){
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageResource(R.drawable.jellybean);
+                }
+                else if(checkedId == R.id.radioButton2) {
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageResource(R.drawable.kitkat);
+                }
+                else if(checkedId == R.id.radioButton3){
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageResource(R.drawable.loliipop);
+                }
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(rg.getCheckedRadioButtonId() == R.id.radioButton) {
-                    imageView.setVisibility(View.VISIBLE);
-                    imageView.setImageResource(R.drawable.dog);
-                }
-                else if(rg.getCheckedRadioButtonId() == R.id.radioButton2) {
-                    imageView.setVisibility(View.VISIBLE);
-                    imageView.setImageResource(R.drawable.cat);
-                }
-                else if(rg.getCheckedRadioButtonId() == R.id.radioButton3) {
-                    imageView.setVisibility(View.VISIBLE);
-                    imageView.setImageResource(R.drawable.rebit);
-                }
+                finish();
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch1.setChecked(true);
+                switch1.setChecked(false);
+                line.setVisibility(View.INVISIBLE);
             }
         });
 
     }
 
     private  void initId() {
-        checkBox = (CheckBox) findViewById(R.id.checkBox);
+        switch1 = (Switch) findViewById(R.id.switch1);
         button = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
+        radioButton = (RadioButton) findViewById(R.id.radioButton);
+        radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
+        radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
         imageView = (ImageView) findViewById(R.id.imageView);
         rg = (RadioGroup) findViewById(R.id.rg);
         line = (LinearLayout) findViewById(R.id.line);

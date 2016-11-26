@@ -17,72 +17,91 @@
         android:text="선택을 시작하겠습니까?"
         android:id="@+id/textView" />
 
-    <CheckBox
-        android:text="시작함"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/checkBox" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/checkBox"
+        android:id="@+id/line"
+        android:visibility="invisible"
+        android:weightSum="1"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/line"
-        android:visibility="invisible">
+        android:layout_marginTop="48dp">
 
         <TextView
-            android:text="좋아하는 애완동물은?"
+            android:text="좋아하는 안드로이드 버전은?"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:layout_alignParentLeft="true" />
 
         <RadioGroup
             android:id="@+id/rg"
             android:layout_width="match_parent"
             android:layout_height="106dp"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:layout_alignParentLeft="true">
 
             <RadioButton
-                android:text="강아지"
+                android:text="젤리빈"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton"
-                android:visibility="visible"/>
+                android:visibility="visible"
+                android:layout_alignParentLeft="true" />
 
             <RadioButton
-                android:text="고양이"
+                android:text="킷캣"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton2"
-                android:visibility="visible"/>
+                android:visibility="visible"
+                android:layout_alignParentLeft="true" />
 
             <RadioButton
-                android:text="토끼"
+                android:text="롤리팝"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton3"
-                android:visibility="visible"/>
+                android:visibility="visible"
+                android:layout_alignParentLeft="true" />
         </RadioGroup>
 
+        <ImageView
+            android:layout_width="189dp"
+            android:layout_height="134dp"
+            app:srcCompat="@drawable/jellybean"
+            android:id="@+id/imageView"
+            android:visibility="visible"
+            android:layout_alignParentLeft="true" />
+
         <Button
-            android:text="선택완료"
-            android:layout_width="126dp"
+            android:text="종료"
+            android:layout_width="154dp"
             android:layout_height="wrap_content"
             android:id="@+id/button"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:layout_alignParentLeft="true" />
 
-        <ImageView
-            android:layout_width="match_parent"
+        <Button
+            android:text="처음으로"
+            android:layout_width="178dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/dog"
-            android:id="@+id/imageView"
-            android:visibility="invisible"/>
+            android:id="@+id/button2"
+            android:visibility="visible"
+            android:layout_alignParentLeft="true" />
+
     </LinearLayout>
+
+    <Switch
+        android:text="Switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
